@@ -13,6 +13,8 @@ fn main() {
     //  expresion as an argument & generates a random num in the range.
     let secret_number = rand::thread_rng().gen_range(1..=100);
 
+    println!("The secret number is: {secret_number}");
+
     println!("Please input your guess.");
 
     let mut guess = String::new();
