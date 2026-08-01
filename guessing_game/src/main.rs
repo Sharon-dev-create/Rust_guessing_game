@@ -21,7 +21,14 @@ fn main(){
         let guess: u32 = match guess.trim().parse() {
            Ok(num) => num,
            Err(_) => continue,
-        }
+        };
 
+        println!("You guessed: {guess}");
+
+        match guess.cmp(&secret_number) {
+            Ordering:: Less => println!("Too Small!");
+            Ordering:: Greater => println!("Too Big!");
+            Ordering:: Equal => println!("You win!");
+        }
     }
 }
