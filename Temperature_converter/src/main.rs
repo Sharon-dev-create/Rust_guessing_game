@@ -15,17 +15,20 @@ fn main() {
         println!("1. Celcius -> Fahrenheit");
         println!("2. Fahrenheit -> Celcius");
         println!("3. Exit");
-        print!("Enter choise (1/2/3)");
+        print!("Enter choice (1/2/3)");
         io::stdout().flush().unwrap();
 
-        let mut choice.trim(){
+        let mut choice = String::new();
+        io::stdin().read_line(&mut choice).unwrap();
+
+        match choice.trim() {
             "1" => {
                 let temp = read_temperature("Enter temperature in Celcius: ");
                 let result = celcius_to_fahrenheit(temp);
                 println!("{:.2}C = {:.2}F", temp, result);
             }
             "2" => {
-                let temp = read_temperature("Enter temperature in Celcius: ");
+                let temp = read_temperature("Enter temperature in Fahrenheit: ");
                 let result = fahrenheit_to_celcius(temp);
                 println!("{:.2}C = {:.2}F", temp, result);
             }
@@ -34,12 +37,24 @@ fn main() {
                 break;
             }
             _ => {
-                println!("Ivalid choice. Enter 1, 2 or 3");
+                println!("Invalid choice. Enter 1, 2 or 3");
             }
         }
     }
 }
 
 fn read_temperature(prompt: &str) -> f64 {
+       loop {
+        println!("{}", prompt);
+        io::stdout().flush().unwrap();
 
+        let mut input = String::new();
+        io::stdin().read_line(&mut input).unwrap(); //Pauses the program and waits for the
+        //user to press enter. Whatever they types goes into input.
+
+        match input.trim().parse::<f64>() {
+           Ok(val) => return val,
+           Err(_) => println!(" Invalid input. Enter a number (e.g 100 or -50.5)"),
+        };
+       }
 }
