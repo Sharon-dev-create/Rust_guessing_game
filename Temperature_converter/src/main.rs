@@ -16,6 +16,23 @@ fn main() {
         println!("2. Fahrenheit -> Celcius");
         println!("3. Exit");
         print!("Enter choise (1/2/3)");
+        io::stdout().flush().unwrap();
 
+        let mut choice.trim(){
+            "1" => {
+                let temp = read_temperature("Enter temperature in Celcius: ");
+                let result = celcius_to_fahrenheit(temp);
+                println!("{:.2}C = {:.2}F", temp, result);
+            }
+            "1" => {
+                let temp = read_temperature("Enter temperature in Celcius: ");
+                let result = fahrenheit_to_celcius(temp);
+                println!("{:.2}C = {:.2}F", temp, result);
+            }
+        }
     }
+}
+
+fn read_temperature(prompt: &str) -> f64 {
+
 }
