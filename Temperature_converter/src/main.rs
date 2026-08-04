@@ -24,10 +24,17 @@ fn main() {
                 let result = celcius_to_fahrenheit(temp);
                 println!("{:.2}C = {:.2}F", temp, result);
             }
-            "1" => {
+            "2" => {
                 let temp = read_temperature("Enter temperature in Celcius: ");
                 let result = fahrenheit_to_celcius(temp);
                 println!("{:.2}C = {:.2}F", temp, result);
+            }
+            "3" => {
+                println!("Goodbye.");
+                break;
+            }
+            _ => {
+                println!("Ivalid choice. Enter 1, 2 or 3");
             }
         }
     }
